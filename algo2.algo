@@ -1,0 +1,55 @@
+ALGORITHM Problem 1;
+VAR
+Set1: array_name : ARRAY_OF INTEGER[100];
+Set2: array_name : ARRAY_OF INTEGER[100];
+L1,L2,i,j,sum:INTEGER:=0
+Found:BOOLEAN;
+BEGIN
+ Write("enter the length of the first set");
+ Read(L1); 
+ Write ("Enter the length of the second set");
+ Read(L2); 
+    FOR i FROM 1 TO L1 STEP 1  DO
+        write ("Enter value number",i,"of the first set");
+        Read(Set1[i]);
+    END_FOR
+
+    FOR j FROM 1 TO L2 STEP 1  DO
+        write ("Enter value number",j,"of the second set");
+        Read(Set2[j]);
+    END_FOR
+
+    FOR i FROM 1 TO L1 STEP 1  DO
+        Found:=False;
+        FOR j FROM 1 TO L2 STEP 1  DO
+            IF (Set1[i]==Set2[j]) THEN
+                Found:=True;
+                ELSE
+                Found:=False;
+            END_IF
+
+            IF (Found==False) THEN 
+                Sum:=Sum+set1[i];
+            END_IF
+        END_FOR
+    END_FOR
+
+    FOR j FROM 1 TO L2 STEP 1  DO
+         Found:=False;
+            FOR i FROM 1 TO L1 STEP 1  DO
+                IF (Set2[j]==Set1[i]) THEN
+                    Found:=True;
+                    ELSE
+                    Found:=False;
+                END_IF
+
+                IF (Found==False) THEN 
+                Sum:=Sum+set2[j];
+                END_IF
+            END_FOR   
+    END_FOR
+        
+
+        
+ Write ("The sum of all the distinct elements from both sets is",sum)
+END
